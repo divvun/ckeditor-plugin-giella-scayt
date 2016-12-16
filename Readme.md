@@ -11,10 +11,13 @@ This bascially follows the [instructions](http://docs.ckeditor.com/#!/guide/dev_
 
 ## Plugin Settings
 
-Assuming `CKEDITOR` is the instance of CKEditor you want to enable the giella plugin for.
+Assuming `CKEDITOR` is the instance of CKEditor you want to enable the giella plugin for, edit the file ``config.js`` in your CKEditor installation to contain the following:
 
 ```js
-	// Activate customized 'giella' plugin. If you have other (extra) plugins, you can separate them with a comma (e.g, `'giella,other_plugin,third_plugin'`).
+CKEDITOR.editorConfig = function( config ) {
+    // Other settings ...
+
+	// Activate the 'giella' plugin. If you have other (extra) plugins, you can separate them with a comma (e.g, `'giella,other_plugin,third_plugin'`).
 	config.extraPlugins = 'contextmenu,giella';
 	config.giella_multiLanguageMode = true;
 	config.giella_autoStartup = false;
@@ -23,6 +26,8 @@ Assuming `CKEDITOR` is the instance of CKEditor you want to enable the giella pl
 	// Set the URLs for the server giella should use. Below is the setting for using the Divvun server:
 	config.giella_servicePath = "http://divvun.no:3000/spellcheck31/script/ssrv.cgi";
 	config.giella_srcUrl = "http://divvun.no:3000/spellcheck/lf/giella3/ckgiella/ckgiella.js";
+
+};
 ```
 
 Setting ``config.giella_autoStartup`` to ``true`` will cause the spelling checker to automatically start when running the editor.
